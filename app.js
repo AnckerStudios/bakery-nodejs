@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const Eureka = require('eureka-js-client').Eureka;
 // создаем объект приложения
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 const client = new Eureka({
