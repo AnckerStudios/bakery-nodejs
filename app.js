@@ -51,5 +51,5 @@ client.start(error => {
 });
 // require("./app/routes/person.routers")(app);
 
-app.listen(PORT, HOST);
+app.listen(PORT);
 console.log(`Running on http://${HOST}:${PORT}`);
