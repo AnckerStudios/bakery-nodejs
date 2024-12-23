@@ -3,8 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const Eureka = require('eureka-js-client').Eureka;
 // создаем объект приложения
-const PORT = 3000;
-const HOST = '0.0.0.0';
+const PORT = 3001;
 const app = express();
 
 const client = new Eureka({
@@ -13,7 +12,7 @@ const client = new Eureka({
       app: 'a-node-service',
       hostName: 'localhost',
       ipAddr: '127.0.0.1',
-      statusPageUrl: 'http://localhost:3000',
+      statusPageUrl: 'http://localhost:3001',
       vipAddress: 'a-node-service',
       port: {
         $: PORT,
@@ -53,4 +52,4 @@ client.start(error => {
 require("./app/routes/person.routers")(app);
 
 app.listen(PORT);
-console.log(`Running on http://${HOST}:${PORT}`);
+console.log(`Running on ${PORT}`);
