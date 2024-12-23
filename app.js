@@ -39,20 +39,17 @@ const client = new Eureka({
 client.logger.level('debug');
 client.start(error => {
   console.log(error || 'NodeJS Eureka Started!');
-  // parse requests of content-type - application/json
-  app.use(bodyParser.json());
+  // app.use(bodyParser.json());
+  // app.use(bodyParser.urlencoded({ extended: true }));
+  // const db = require("./app/models");
+  // db.sequelize.sync();
 
-  // parse requests of content-type - application/x-www-form-urlencoded
-  app.use(bodyParser.urlencoded({ extended: true }));
-  const db = require("./app/models");
-  db.sequelize.sync();
-  // App
   app.get('/', (req, res) => {
     res.send('Hello World!\n');
     res.end();
   });
 });
-require("./app/routes/person.routers")(app);
-// начинаем прослушивать подключения на 3000 порту
+// require("./app/routes/person.routers")(app);
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
